@@ -262,7 +262,6 @@ class Theme extends Skeleton
     public function registerAssets()
     {
 
-
         $this->registerScript(
             'vue-vendor-js',
             'assets/vuejs/dist/js/chunk-vendors.js'
@@ -286,7 +285,6 @@ class Theme extends Skeleton
         );
 
 
-
         $this->registerScript(
             'woof-js',
             'assets/woof/javascript/woof.js'
@@ -294,8 +292,7 @@ class Theme extends Skeleton
 
         $this->registerCSS(
             'woof-css',
-            'assets/woof/css/woof.css',
-            ['common-css']
+            'assets/woof/css/woof.css'
         );
         return $this;
     }

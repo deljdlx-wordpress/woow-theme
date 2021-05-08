@@ -1,11 +1,12 @@
 <?php
 namespace WoowTheme;
-use Woof\Theme\Skeleton;
+
 
 use DelJDLX\Woof\Theme\Customizer\Section;
 use DelJDLX\Woof\Theme\Customizer\ThemeParameter;
+use Woof\Theme\Theme as ThemeTheme;
 
-class Theme extends Skeleton
+class Theme extends ThemeTheme
 {
 
     protected $parameters = [

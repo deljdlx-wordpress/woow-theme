@@ -1,17 +1,26 @@
 <?php
-$theme = \Woof\Theme\Skeleton::getInstance();
+$theme = \Woof\Theme\Theme::getInstance();
+$view = $theme->getView('_blank');
+$view->setPart('main', true);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <?php $theme->getView()->getHeader();?>
-</head>
-<body>
 
 
-    <?php
-        $theme->partial('partials/sections/customizer');
-    ?>
+    <section>
+        <?php
+            foreach($theme->getModel()->getPosts() as $post) {
+                echo "<article>
+                    <h2>{$post->getTitle()}</h2>
+                    <main>
+                        <p>{$post->getExcerpt()}</p>
+                        <div>
+                            <a href=\"{$post->getURL()}\">Lire la suite</a>
+                        </div>
+                    </main>
+                </article>";
+            }
+        ?>
+    </section>
+
 
     <section>
         <h2>Font awesome</h2>
@@ -19,18 +28,16 @@ $theme = \Woof\Theme\Skeleton::getInstance();
             <i class="fab fa-500px fa-4x"></i>
             <i class="fas fa-box-open fa-4x"></i>
             <i class="fas fa-cat fa-4x"></i>
-
         </div>
-
     </section>
 
 
     <?php
-        $theme->partial('partials/sections/bootstrap');
+        echo $view->loadTemplate('partials/sections/bootstrap');
     ?>
 
     <?php
-        $theme->partial('partials/sections/vuejs');
+        echo $view->loadTemplate('partials/sections/vuejs');
     ?>
 
     <section>
@@ -63,19 +70,7 @@ $theme = \Woof\Theme\Skeleton::getInstance();
         ?>
     </section>
 
-    <section>
-        <?php
-            foreach($theme->getModel()->getPosts() as $post) {
-                echo "<article>
-                    <h2>{$post->getTitle()}</h2>
-                    <main>
-                        <p>{$post->getContent()}</p>
-                    </main>
-                </article>";
-            }
-        ?>
-    </section>
-
-    <?php $theme->getView()->getFooter();?>
-</body>
-</html>
+<?php
+    $view->endPart('main');
+    echo $view->render();
+?>

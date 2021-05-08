@@ -7,7 +7,7 @@ body {
 
 section {
   border: solid var(--layout-border-default-width) var(--layout-border-default-color);
-  margin: calc(var(--layout-gutter-default) * 2);
+  margin: calc(var(--layout-gutter-default));
   padding: var(--layout-padding-default);
 }
 

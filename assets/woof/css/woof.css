@@ -1,9 +1,20 @@
 body {
+  min-height: 100vh;
+
   font-family: var(--typography-font-family-default);
   font-size: var(--typography-font-size-default);
   background-color: var(--color-background-default);
   color: var(--color-foreground-default);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
+
+
+
+
 
 section {
   border: solid var(--layout-border-default-width) var(--layout-border-default-color);

@@ -25,7 +25,9 @@
         </main>
     </div>
 
-
+    <?php
+        echo $template->include('partials/sections/footer');
+    ?>
 
     <?php $view->getFooter();?>
 </body>
